@@ -1,3 +1,5 @@
+#描述
+
 #firefly
 =======
 
@@ -38,16 +40,14 @@
 <p align="left"><b>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</b>A basic server that is running a non-stop applications。In a distributed game server, we need to have a server function, listen for client connections, monitor other services processes messages to connect to other service process，Some require a database connection and caching services。As shown</p>
 <p align="left">&nbsp;<a href=""http://firefly2.9miao.com/wp-content/uploads/2013/08/234.jpg"><img class="alignnone size-full wp-image-41" alt="234" src="./9miao_files/234.jpg" width="552" height="401"></a></p>
 <p align="left">net connect Handle client connections，Other news monitoring service process root，node to connect to other service process，db database，“cache” database，cache 。Do they need to listen for client connections, whether listening other service processes messages, etc. This is all can be configured in config.json,Including the name of the server as well as the various connections between each server。So you can customize their own distributed architecture。</p>
-			</div><!-- .entry-content -->
+			</div>
 
-</article><!-- #post-31 -->
-
-				
-			</div><!-- #content -->
-		</div><!-- #primary -->
+</article>
+			</div>
+		</div>
 
 
-	</div><!-- #main -->
+	</div>
 
 </div>
 
