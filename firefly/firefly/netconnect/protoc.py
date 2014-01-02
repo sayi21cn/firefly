@@ -49,23 +49,23 @@ class LiberateProtocol(protocol.Protocol):
     def dataHandleCoroutine(self):
         """
         """
-        lenght = self.factory.dataprotocl.getHeadLenght()#获取协议头的长度
+        length = self.factory.dataprotocl.getHeadlength()#获取协议头的长度
         while True:
             data = yield
             self.buff += data
-            while self.buff.__len__() >= lenght: 
-                unpackdata = self.factory.dataprotocl.unpack(self.buff[:lenght])
+            while self.buff.__len__() >= length: 
+                unpackdata = self.factory.dataprotocl.unpack(self.buff[:length])
                 if not unpackdata.get('result'):
                     log.msg('illegal data package --')
                     self.transport.loseConnection()
                     break
                 command = unpackdata.get('command')
-                rlenght = unpackdata.get('lenght')
-                request = self.buff[lenght:lenght+rlenght]
-                if request.__len__()< rlenght:
+                rlength = unpackdata.get('length')
+                request = self.buff[length:length+rlength]
+                if request.__len__()< rlength:
                     log.msg('some data lose')
                     break
-                self.buff = self.buff[lenght+rlenght:]
+                self.buff = self.buff[length+rlength:]
                 d = self.factory.doDataReceived(self,command,request)
                 if not d:
                     continue

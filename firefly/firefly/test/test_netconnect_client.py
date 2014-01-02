@@ -32,8 +32,8 @@ def sendData(sendstr,commandId):
 
 def resolveRecvdata(data):
     head = struct.unpack('!sssss3I',data[:17])
-    lenght = head[6]
-    data = data[17:17+lenght]
+    length = head[6]
+    data = data[17:17+length]
     return data
 
 s1 = time.time()

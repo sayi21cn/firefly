@@ -6,4 +6,4 @@ Created on 2013-10-21
 '''
 
 from twisted.python import versions
-version = versions.Version('firefly', 1, 3, 1)
+version = versions.Version('firefly', 1, 3, 2)

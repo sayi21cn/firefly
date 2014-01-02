@@ -10,7 +10,7 @@ from zope.interface import Interface
 
 class IDataPackProtoc(Interface):
     
-    def getHeadLenght():
+    def getHeadlength():
         """获取数据包的长度
         """
         pass

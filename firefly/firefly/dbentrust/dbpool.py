@@ -16,12 +16,11 @@ class DBPool(object):
         '''
         '''
         self.config = kw
-        self.pool = PooledDB(MySQLdb,5,host = kw.get("host"), user = kw.get("user"),
-                            passwd = kw.get("passwd"),db = kw.get("db"),
-                            port=kw.get("port"),charset=kw.get("charset"))
+        creator = DBCS.get(kw.get('engine','mysql'),MySQLdb)
+        self.pool = PooledDB(creator,5,**kw)
+        
     def connection(self):
         return self.pool.connection()
 
 dbpool = DBPool()
-
 

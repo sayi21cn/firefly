@@ -57,10 +57,28 @@ class webserviceHandle:
     def __call__(self,cls):
         """
         """
+        from twisted.web.resource import Resource
         if self._url:
-            GlobalObject().webroot.putChild(self._url, cls())
+            child_name = self._url
         else:
-            GlobalObject().webroot.putChild(cls.__name__, cls())
+            child_name = cls.__name__
+        path_list = child_name.split('/')
+        temp_res = None
+        path_list = [path for path in path_list if path]
+        patn_len = len(path_list)
+        for index,path in enumerate(path_list):
+            if index==0:
+                temp_res = GlobalObject().webroot
+            if index==patn_len-1:
+                res = cls()
+                temp_res.putChild(path, res)
+                return
+            else:
+                res = temp_res.children.get(path)
+                if not res:
+                    res = Resource()
+                    temp_res.putChild(path, res)
+            temp_res=res
     
 
     
